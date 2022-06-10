@@ -20,7 +20,7 @@ from pyrogram import Client, filters
 from .. import ALL_CHATS, help_dict
 from ..utils.misc import get_file_mimetype, watermark_photo
 
-@Client.on_message(filters.command(['setwatermark@MMLeech2bot', 'setwatermark@MMLeech2bot', 'savewatermark@MMLeech2bot']) & filters.chat(ALL_CHATS))
+@Client.on_message(filters.command(['setwatermark@MMLeech9bot', 'setwatermark@MMLeech9bot', 'savewatermark@MMLeech9bot']) & filters.chat(ALL_CHATS))
 async def savewatermark(client, message):
     reply = message.reply_to_message
     document = message.document
@@ -67,7 +67,7 @@ async def savewatermark(client, message):
     else:
         await message.reply_text('Cannot find watermark')
 
-@Client.on_message(filters.command(['clearwatermark@MMLeech2bot', 'rmwatermark', 'delwatermark', 'removewatermark', 'deletewatermark']) & filters.chat(ALL_CHATS))
+@Client.on_message(filters.command(['clearwatermark@MMLeech9bot', 'rmwatermark', 'delwatermark', 'removewatermark', 'deletewatermark']) & filters.chat(ALL_CHATS))
 async def rmwatermark(client, message):
     for path in ('watermark', 'watermarked_thumbnail'):
         path = os.path.join(str(message.from_user.id), f'{path}.jpg')
@@ -75,11 +75,11 @@ async def rmwatermark(client, message):
             os.remove(path)
     await message.reply_text('<b>Watermark Cleared ❌</b>')
 
-@Client.on_message(filters.command('testwatermark@MMLeech2bot') & filters.chat(ALL_CHATS))
+@Client.on_message(filters.command('testwatermark@MMLeech9bot') & filters.chat(ALL_CHATS))
 async def testwatermark(client, message):
     watermark = os.path.join(str(message.from_user.id), 'watermark.jpg')
     if not os.path.isfile(watermark):
-        await message.reply_text('Cannot find watermark')
+        await message.reply_text('<b>Cannot find watermark</b>')
         return
     watermarked_thumbnail = os.path.join(str(message.from_user.id), 'watermarked_thumbnail.jpg')
     with tempfile.NamedTemporaryFile(suffix='.jpg') as file:
@@ -90,14 +90,14 @@ async def testwatermark(client, message):
         await message.reply_photo(to_upload)
 
 help_dict['watermark'] = ('Watermark',
-'''/setwatermark@MMLeech2bot <i>&lt;as reply to image or as a caption&gt;</i>
-/setwatermark@MMLeech2bot <i>&lt;as reply to image or as a caption&gt;</i>
-/savewatermark@MMLeech2bot <i>&lt;as reply to image or as a caption&gt;</i>
+'''/setwatermark@MMLeech9bot <i>&lt;as reply to image or as a caption&gt;</i>
+/setwatermark@MMLeech9bot <i>&lt;as reply to image or as a caption&gt;</i>
+/savewatermark@MMLeech9bot <i>&lt;as reply to image or as a caption&gt;</i>
 
-/clearwatermark@MMLeech2bot
+/clearwatermark@MMLeech9bot
 /rmwatermark
 /removewatermark
 /delwatermark
 /deletewatermark
 
-/testwatermark@MMLeechv5_bot''')
+/testwatermark@MMLeech9bot''')
