@@ -134,7 +134,7 @@ async def initiate_magnet(client, message, link, flags):
     else:
         await handle_leech(client, message, gid, reply, user_id, flags)
 
-@Client.on_message(filters.command(['leechvideo@MMLeech2bot', 'leechvideo@MMLeech2bot', 'leechZip@MMLeech2bot', 'leechZip@MMLeech2bot', 'leechfile@MMLeech2bot', 'leechfile@MMLeech2bot']) & filters.chat(ALL_CHATS))
+@Client.on_message(filters.command(['leechvideo@MMLeech9bot', 'leechvideo@MMLeech9bot', 'leechZip@MMLeech9bot', 'leechZip@MMLeech9bot', 'leechfile@MMLeech9bot', 'leechfile@MMLeech9bot']) & filters.chat(ALL_CHATS))
 async def directdl_cmd(client, message):
     text = message.text.split(None, 1)
     command = text.pop(0).lower()
@@ -152,20 +152,20 @@ async def directdl_cmd(client, message):
         link = reply.text
     if not link:
         await message.reply_text('''Usage:
-- /leechvideo@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i>
-- /leechvideo@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i>
-- /leechvideo@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i>
-- /leechvideo@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i>
+- /leechvideo@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i>
+- /leechvideo@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i>
+- /leechvideo@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i>
+- /leechvideo@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i>
 
-- /leechZip@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i>
-- /leechZip@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i>
-- /leechZip@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i>
-- /leechZip@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i>
+- /leechZip@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i>
+- /leechZip@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i>
+- /leechZip@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i>
+- /leechZip@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i>
 
-- /leechfile@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i> - Sends videos as files
-- /leechfile@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i> - Sends videos as files
-- /leechfile@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i> - Sends videos as files
-- /leechfile@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i> - Sends videos as files''')
+- /leechfile@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i> - Sends videos as files
+- /leechfile@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i> - Sends videos as files
+- /leechfile@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i> - Sends videos as files
+- /leechfile@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i> - Sends videos as files''')
         return
     split = link.split('|', 1)
     if len(split) > 1:
@@ -234,7 +234,7 @@ async def handle_leech(client, message, gid, reply, user_id, flags):
 
 <b>{html.escape(return_progress_string(completed_length, total_length))}</b>
 
-<b>➠ GID:</b> <code>{gid}</code>
+<b>➠ GID:</b> <code>/cancel {gid}</code>
 <b>➠ Status:</b> {status}
 <b>➠ Total Size:</b> {formatted_total_length}
 <b>➠ Downloaded Size:</b> {formatted_completed_length}
@@ -372,22 +372,22 @@ help_dict['leech'] = ('Leech',
 /filemagnet <i>&lt;Magnet URL&gt;</i> - Sends videos as files
 /filemagnet <i>(as reply to a Magnet URL)</i> - Sends videos as files
 
-/leechvideo@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i>
-/leechvideo@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i>
-/leechvideo@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i>
-/leechvideo@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i>
+/leechvideo@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i>
+/leechvideo@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i>
+/leechvideo@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i>
+/leechvideo@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i>
 
-/leechZip@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i>
-/leechZip@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i>
-/leechZip@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i>
-/leechZip@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i>
+/leechZip@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i>
+/leechZip@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i>
+/leechZip@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i>
+/leechZip@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i>
 
-/leechfile@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i> - Sends videos as files
-/leechfile@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i> - Sends videos as files
-/leechfile@MMLeech2bot <i>&lt;Direct URL&gt; | optional custom file name</i> - Sends videos as files
-/leechfile@MMLeech2bot <i>(as reply to a Direct URL) | optional custom file name</i> - Sends videos as files
+/leechfile@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i> - Sends videos as files
+/leechfile@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i> - Sends videos as files
+/leechfile@MMLeech9bot <i>&lt;Direct URL&gt; | optional custom file name</i> - Sends videos as files
+/leechfile@MMLeech9bot <i>(as reply to a Direct URL) | optional custom file name</i> - Sends videos as files
 
-/cancel@MMLeech2bot <i>&lt;GID&gt;</i>
-/cancel@MMLeech2bot <i>(as reply to status message)</i>
+/cancel@MMLeech9bot <i>&lt;GID&gt;</i>
+/cancel@MMLeech9bot <i>(as reply to status message)</i>
 
-/list@MMLeech2bot - Lists all current leeches''')
+/list@MMLeech9bot - Lists all current leeches''')
